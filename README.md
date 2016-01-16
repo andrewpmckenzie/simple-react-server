@@ -47,7 +47,7 @@ window.setTimeout(() => {
     clock.time = new Date().toString();
     clock.updates++;
     collections.update(clock.id, clock);
-  }); 
+  });
 }, 1000);
 
 var idCounter = 0;
@@ -83,11 +83,7 @@ var Client = require('simple-react-server');
 var collections = require('../shared/collections.js');
 var rpcs = require('../shared/rpcs.js');
 
-var client = new Client({
-  collections: collections,
-  rpcs: rpcs
-});
-
+var client = new Client({ collections: collections, rpcs: rpcs });
 client.render(AppView);
 ```
 
@@ -107,23 +103,22 @@ class AppView extends React.Component {
     this.state = { clocks: [] };
   }
 
-  updateClocks () {
-    this.setState({ clocks: collections.clocks.all() });
-  }
-
   componentDidMount () {
     collections.clocks.on('created', this.updateClocks.bind(this));
     collections.clocks.on('updated', this.updateClocks.bind(this));
     collections.clocks.on('deleted', this.updateClocks.bind(this));
   }
 
-  addClock () {
-    rpcs.addClock({ name: 'Foo clock' });
-  }
+  updateClocks () { this.setState({ clocks: collections.clocks.all() }); }
+
+  // Send an RPC message to the server
+  addClock () { rpcs.addClock({ name: 'Foo clock' }); }
+
+  renderClocks () { this.state.clocks.map((clock) => <Clock {...clock} />); }
 
   render () {
     return <div>
-      <div className='clocks'>{this.state.clocks.map((clock) => <Clock {...clock} />}</div>
+      <div className='clocks'>{this.renderClocks()}</div>
       <button onClick={this.addClock.bind(this)}>Add clock</button>
     </div>
   }
