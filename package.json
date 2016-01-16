@@ -1,7 +1,7 @@
 {
-  "name": "web-dev",
-  "version": "1.0.0",
-  "description": "",
+  "name": "simple-react-server",
+  "version": "0.0.1",
+  "description": "A simple express-based React server with model syncing, client-server RPC, less compilation + browserify. Intended for quick hackery, not production.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,5 +20,8 @@
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "socket.io": "^1.4.3"
+  },
+  "devDependencies": {
+    "supervisor": "^0.9.1"
   }
 }
