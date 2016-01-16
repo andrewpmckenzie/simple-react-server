@@ -62,6 +62,12 @@ rpcs.addClock.invoke((options) => {
 
 ```javascript
 // shared/collections.js
+// Collection objects used to store models. 
+// Collection events: 'created', 'updated', 'deleted'.
+// Collection methods: 
+//   add(id, item), update(id, item), remove(id)
+//   item(id):Item, all():Item[], indexed():Object.<ID,Item>
+//   on(CB.<EventName, ID, Item>)
 var Collection = require('simple-react-server').Collection;
 module.exports = {
   clocks: new Collection()
@@ -70,6 +76,11 @@ module.exports = {
 
 ```javascript
 // shared/rpcs.js
+// RPC methods used to send messages from the client to the server. 
+// Handle events on the server with:
+//   require('../shared/rpcs').addClock.invoke(function (request) { ... });
+// Send events on the client with:
+//   require('../shared/rpcs').addClock({ ...request... });
 var RPC = require('simple-react-server').RPC;
 module.exports = {
   addClock: new RPC()
