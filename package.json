@@ -1,12 +1,18 @@
 {
   "name": "simple-react-server",
   "version": "0.0.1",
-  "description": "A simple express-based React server with model syncing, client-server RPC, less compilation + browserify. Intended for quick hackery, not production.",
+  "description": "A basic express-based React server with model syncing, client-server RPC, less compilation + browserify. Intended for quick hackery, not production.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andrewpmckenzie/simple-react-server.git"
+  },
+  "keywords": [ "react", "less", "browserify", "mvc" ],
+  "homepage": "https://github.com/andrewpmckenzie/simple-react-server.git",
+  "author": "andrewpmckenzie@gmail.com",
   "license": "ISC",
   "dependencies": {
     "babel-preset-react": "^6.3.13",
