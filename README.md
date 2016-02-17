@@ -52,10 +52,11 @@ setTimeout(() => {
 
 var idCounter = 0;
 rpcs.addClock.invoke((options) => {
-  collections.clocks.add({
-    id: idCounter++,
+  var id = idCounter++;
+  collections.clocks.add(id, {
+    id: id,
     name: options.name,
-    time: new Date().toString();
+    time: new Date().toString()
   });
 });
 ```
