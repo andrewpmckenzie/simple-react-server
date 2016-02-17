@@ -46,7 +46,7 @@ window.setTimeout(() => {
   collections.clocks.all().each((clock) => {
     clock.time = new Date().toString();
     clock.updates++;
-    collections.update(clock.id, clock);
+    collections.update(clock.id, clock)
   });
 }, 1000);
 
