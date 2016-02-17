@@ -25,8 +25,8 @@ client will add a new clock to the list.
 var path = require('path');
 var Server = require('simple-react-server').Server;
 
-var collections = require('shared/collections');
-var rpcs = require('shared/rpcs');
+var collections = require('./shared/collections');
+var rpcs = require('./shared/rpcs');
 
 var server = new Server({
   collections:   collections,
@@ -42,8 +42,8 @@ server.run();
 
 // Handle RPC requests + update models
 
-window.setTimeout(() => {
-  collections.clocks.all().each((clock) => {
+setTimeout(() => {
+  collections.clocks.all().forEach((clock) => {
     clock.time = new Date().toString();
     clock.updates++;
     collections.update(clock.id, clock)
@@ -90,7 +90,7 @@ module.exports = {
 ```javascript
 // client/app.js
 var AppView = require('./AppView.jsx');
-var Client = require('simple-react-server');
+var Client = require('simple-react-server').Client;
 var collections = require('../shared/collections.js');
 var rpcs = require('../shared/rpcs.js');
 
