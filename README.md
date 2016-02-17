@@ -42,13 +42,15 @@ server.run();
 
 // Handle RPC requests + update models
 
-setTimeout(() => {
+tick = () => setTimeout(() => {
   collections.clocks.all().forEach((clock) => {
     clock.time = new Date().toString();
     clock.updates++;
-    collections.update(clock.id, clock)
+    collections.clocks.update(clock.id, clock);
   });
+  tick();
 }, 1000);
+tick();
 
 var idCounter = 0;
 rpcs.addClock.invoke((options) => {
