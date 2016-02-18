@@ -1,6 +1,6 @@
 {
   "name": "simple-react-server",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A basic express-based React server with model syncing, client-server RPC, less compilation + browserify. Intended for quick hackery, not production.",
   "main": "index.js",
   "scripts": {
